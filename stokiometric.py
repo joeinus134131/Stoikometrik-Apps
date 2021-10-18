@@ -24,8 +24,8 @@ aktualair = 11.25
 
 #Gui Setting
 gui = tk.Tk()
-gui.title("Stokiometrik Apps Calculator PLTU TARAHAN")
-gui.geometry("650x600")
+gui.title("Stokiometrik Apps Calculator")
+gui.geometry("650x650")
 gui.iconbitmap('E:\\PROJECT-KODINGAN\\1. PYTHON\\3. 2021 PENGUJIAN MODULE\\logo_itera_oke_bvD_icon.ico')
 
 #Gambar
@@ -33,7 +33,7 @@ image=Image.open("E:\\PROJECT-KODINGAN\\1. PYTHON\\3. 2021 PENGUJIAN MODULE\\Log
 image.thumbnail((100,300),Image.ANTIALIAS)
 photo=ImageTk.PhotoImage(image)
 label_image=tk.Label(image=photo)
-label_image.place(x=400, y=50)
+label_image.place(x=430, y=50)
 
 #gambar=Image.open("E:\\PROJECT-KODINGAN\\1. PYTHON\\3. 2021 PENGUJIAN MODULE\\logo itera oke.png")
 #gambar.thumbnail((100,200),Image.ANTIALIAS)
@@ -56,56 +56,86 @@ labelkarbon = tk.Label(gui, font = "arial 12 bold", text = "Carbon: ")
 labelkarbon.place(x=10, y=50)
 karboninput = tk.Entry()
 karboninput.place(x=200, y=50)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=50)
 
 labelhidrogen = tk.Label(gui, font = "arial 12 bold", text = "Hydrogen : ")
 labelhidrogen.place(x=10, y=80)
 hidrogeninput = tk.Entry()
 hidrogeninput.place(x=200, y=80)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=80)
 
 labelsulfur = tk.Label(gui, font = "arial 12 bold", text = "Sulfur : ")
 labelsulfur.place(x=10, y=110)
 sulfurinput = tk.Entry()
 sulfurinput.place(x=200, y=110)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=110)
 
 labeloksigen = tk.Label(gui, font = "arial 12 bold", text = "Oxygen : ")
 labeloksigen.place(x=10, y=140)
 oksigeninput = tk.Entry()
 oksigeninput.place(x=200, y=140)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=140)
 
 labelnitrogen = tk.Label(gui, font = "arial 12 bold", text = "Nitrogen : ")
 labelnitrogen.place(x=10, y=170)
 nitrogeninput = tk.Entry()
 nitrogeninput.place(x=200, y=170)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=170)
 
 labelash = tk.Label(gui, font = "arial 12 bold", text = "Ash : ")
 labelash.place(x=10, y=200)
 ashinput = tk.Entry()
 ashinput.place(x=200, y=200)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=200)
 
 labeltm = tk.Label(gui, font = "arial 12 bold", text = "TM: ")
 labeltm.place(x=10, y=230)
 tminput = tk.Entry()
 tminput.place(x=200, y=230)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=230)
 
 labeltcf = tk.Label(gui, font = "arial 12 bold", text = "TCF : ")
 labeltcf.place(x=10, y=260)
 tcfinput = tk.Entry()
 tcfinput.place(x=200, y=260)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=260)
 
 labellhv = tk.Label(gui, font = "arial 12 bold", text = "LHV : ")
 labellhv.place(x=10, y=290)
 lhvinput = tk.Entry()
 lhvinput.place(x=200, y=290)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=290)
 
 labelhhv = tk.Label(gui, font = "arial 12 bold", text = "HHV : ")
 labelhhv.place(x=10, y=320)
 hhvinput = tk.Entry()
 hhvinput.place(x=200, y=320)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kg ")
+labelhsd.place(x=330, y=320)
 
-labelo2 = tk.Label(gui, font = "arial 12 bold", text = "%O2 : ")
+labelo2 = tk.Label(gui, font = "arial 12 bold", text = "O2 : ")
 labelo2.place(x=10, y=350)
 o2input = tk.Entry()
 o2input.place(x=200, y=350)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " % ")
+labelhsd.place(x=330, y=350)
+
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = "Flow HSD : ")
+labelhsd.place(x=10, y=380)
+hsdinput = tk.Entry()
+hsdinput.place(x=200, y=380)
+labelhsd = tk.Label(gui, font = "arial 12 bold", text = " kL/H ")
+labelhsd.place(x=330, y=380)
+
 
 #fungsi hitung stokometri
 def hitung_stokiometrik():
@@ -114,7 +144,7 @@ def hitung_stokiometrik():
     #z = float(pengurangan)
     #persentase = float(z/float(stokiometriinput.get()))*100
 
-     #O2 yang diminta
+    #O2 yang diminta
     c = float(karboninput.get())*(32/12)
     h = float(hidrogeninput.get())*(16/2)
     s = float(sulfurinput.get())*(32/32)
@@ -136,6 +166,8 @@ def hitung_stokiometrik():
 
     stoichairflow = stoichair*tcf
 
+    thermalefisiensi = (100/heatinput)*100
+
     #exccessair
     excessair = (float(o2input.get())/(21-float(o2input.get())))*100
 
@@ -148,18 +180,19 @@ def hitung_stokiometrik():
     #primaryairflow
     primaryairflow = 1.8*tcf
 
-    #secondaryairflow
+    #secondaryairflow 
     secondaryairflow = stoichairflow-primaryairflow
 
     #subtotalsaflow
     subtotalsaairflow = secondaryairflow + excessairflow
 
     textArea = tk.Text(gui,height=10,width=50)
-    textArea.place(x=200, y=420)
+    textArea.place(x=200, y=470)
     jawabano2total = " O2 : {o2} ,".format(o2=o2total)
     jawabann2 = " N2 : {n2plus} ,".format(n2plus=n2)
     jawabanstoichair = " Stoich Air : {stoich} ,".format(stoich=stoichair)
     jawabanheatinput = " Heat input : {heatin} Watt, ".format(heatin=heatinput)
+    jawabanthermal = " Efisiensi Thermal : {thermal} tph,".format(thermal=thermalefisiensi)
     jawabansaf = " Stoich Air Flow : {saf} tph,".format(saf=stoichairflow)
     jawabanea = " Excess Air : {ea} %,".format(ea=excessair)
     jawabaneaf = " Excess Air Flow : {eaf} tph,".format(eaf=excessairflow)
@@ -171,6 +204,7 @@ def hitung_stokiometrik():
     textArea.insert(tk.END, jawabann2)
     textArea.insert(tk.END, jawabanstoichair)
     textArea.insert(tk.END, jawabanheatinput)
+    textArea.insert(tk.END, jawabanthermal)
     textArea.insert(tk.END, jawabansaf)
     textArea.insert(tk.END, jawabanea)
     textArea.insert(tk.END, jawabaneaf)
@@ -183,9 +217,19 @@ def hitung_stokiometrik():
     #print("Hasil Persentase : ", persentase)
 
 
-#def printdata():
-    #print("data aktual : ", float(aktualinput.get()))
-    #print("data stokiometri : ", float(stokiometriinput.get()))
+def printdata():
+    O2 = 18.5
+    hsd = float(hsdinput.get())
+    rasioO2 = hsd*O2
+
+    textArea = tk.Text(gui,height=10,width=50)
+    textArea.place(x=200, y=470)
+    perbandingan = " HSD : {hsd2} : ".format(hsd2=hsd)
+    rasioo2 = " O2 : {rasioo2}".format(rasioo2=rasioO2)
+    
+
+    textArea.insert(tk.END, perbandingan)
+    textArea.insert(tk.END, rasioo2)
 
 
 def flowrate_fungsi():
@@ -200,8 +244,6 @@ def tampilgrafik():
     plt.show()
 
 def thermal_efisiensi():
-    inlet = input("Masukan inlet Steam : ")
-    outlet = input("Masukan outlet Steam : ")
     efisiensi = (outlet/inlet)*100
     print(efisiensi)
 
@@ -217,22 +259,23 @@ def reset():
     lhvinput.delete(0)
     hhvinput.delete(0)
     o2input.delete(0)
+    hsdinput.delete(0)
 
 #tombol hitung
 tombolhitung = tk.Button(gui, font="arial 13 bold", text = "Hitung", command = hitung_stokiometrik)
-tombolhitung.place(x=200, y=380)
+tombolhitung.place(x=200, y=420)
 
 tombolreset = tk.Button(gui, font="arial 13 bold", text = "Reset", command = reset)
-tombolreset.place(x=300, y=380)
+tombolreset.place(x=430, y=420)
 
 #tombolhitungfr = tk.Button(gui, font="arial 13 bold", text = "Hitung Flow Rate", command = flowrate_fungsi)
 #tombolhitungfr.place(x=220, y=350)
 
-tampilkangrafik = tk.Button(gui, font="arial 13 bold", text = "Grafik", command = tampilgrafik)
-tampilkangrafik.place(x=400, y=380)
+tampilkangrafik = tk.Button(gui, font="arial 13 bold", text = "Hitung Rasio", command = printdata)
+tampilkangrafik.place(x=290, y=420)
 
 #Hasil
 labelhasil=tk.Label(gui, font="arial 12 bold", text="Hasil :")
-labelhasil.place(x=10, y=420)
+labelhasil.place(x=10, y=470)
 
 gui.mainloop()
