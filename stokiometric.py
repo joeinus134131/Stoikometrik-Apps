@@ -26,10 +26,10 @@ aktualair = 11.25
 gui = tk.Tk()
 gui.title("Stokiometrik Apps Calculator")
 gui.geometry("650x650")
-gui.iconbitmap('E:\\PROJECT-KODINGAN\\1. PYTHON\\3. 2021 PENGUJIAN MODULE\\logo_itera_oke_bvD_icon.ico')
+gui.iconbitmap('img/logo_itera_oke_bvD_icon.ico')
 
 #Gambar
-image=Image.open("E:\\PROJECT-KODINGAN\\1. PYTHON\\3. 2021 PENGUJIAN MODULE\\Logo_PLN.png")
+image=Image.open("img/Logo_PLN.png")
 image.thumbnail((100,300),Image.ANTIALIAS)
 photo=ImageTk.PhotoImage(image)
 label_image=tk.Label(image=photo)
